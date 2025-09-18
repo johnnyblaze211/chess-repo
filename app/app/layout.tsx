@@ -37,7 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${crimsonPro.variable} font-sans antialiased wooden-texture min-h-screen`}>
+      <body className={`${inter.variable} ${crimsonPro.variable} font-sans antialiased chess-tile-bg min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

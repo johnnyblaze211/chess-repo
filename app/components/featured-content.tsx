@@ -73,10 +73,10 @@ export default function FeaturedContent() {
               viewport={{ once: true }}
               className="h-full"
             >
-              <Card className={`h-full hover-lift border-0 shadow-lg ${feature?.bgPattern || ''} bg-gradient-to-br from-white to-chess-wood-light/10`}>
+              <Card className={`h-full hover-chess-lift border-2 border-chess-border shadow-lg chess-card-pattern bg-card`}>
                 <CardHeader className="text-center">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${feature?.color || 'from-amber-600 to-amber-800'} rounded-2xl mb-4 mx-auto shadow-lg`}>
-                    <Icon className="w-8 h-8 text-white" />
+                  <div className={`inline-flex items-center justify-center w-16 h-16 gradient-chess-board rounded-2xl mb-4 mx-auto shadow-lg`}>
+                    <Icon className="w-8 h-8 text-chess-gold" />
                   </div>
                   <CardTitle className="text-xl font-crimson text-chess-accent">
                     {feature?.title || 'Feature'}
@@ -86,7 +86,7 @@ export default function FeaturedContent() {
                   <CardDescription className="text-sm leading-relaxed">
                     {feature?.description || 'Feature description'}
                   </CardDescription>
-                  <Button asChild variant="outline" className="w-full border-chess-wood-dark/20 hover:bg-chess-wood-light/20">
+                  <Button asChild variant="outline" className="w-full btn-chess-light hover-chess-lift">
                     <Link href={feature?.href || '/'}>
                       Learn More
                     </Link>

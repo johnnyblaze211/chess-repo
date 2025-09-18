@@ -104,19 +104,19 @@ export default function ChessBoard() {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        <Card className="overflow-hidden shadow-2xl border-0 bg-gradient-to-br from-white to-chess-wood-light/10">
-          <CardHeader className="text-center bg-gradient-wooden">
-            <CardTitle className="text-2xl font-crimson text-white text-shadow-warm">
+        <Card className="overflow-hidden shadow-2xl border-2 border-chess-border chess-card-pattern bg-card">
+          <CardHeader className="text-center gradient-chess-board">
+            <CardTitle className="text-2xl font-crimson text-chess-square-light text-shadow-chess-dark">
               Scholar's Mate Demonstration
             </CardTitle>
-            <p className="text-white/80 text-sm">
+            <p className="text-chess-square-light/80 text-sm">
               Move {currentMove + 1} of {scholarsMate?.length || 0} • {currentMove >= (scholarsMate?.length || 0) - 1 ? 'Checkmate!' : 'In Progress'}
             </p>
           </CardHeader>
           <CardContent className="p-8">
             {/* Chess Board */}
             <div className="max-w-md mx-auto mb-8">
-              <div className="grid grid-cols-8 gap-0 border-4 border-chess-wood-dark rounded-lg overflow-hidden shadow-lg">
+              <div className="grid grid-cols-8 gap-0 border-4 border-chess-border rounded-lg overflow-hidden shadow-lg">
                 {board?.map((row, rowIndex) =>
                   row?.map((piece, colIndex) => {
                     const isLight = (rowIndex + colIndex) % 2 === 0
@@ -151,7 +151,7 @@ export default function ChessBoard() {
               <Button
                 onClick={togglePlay}
                 size="lg"
-                className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white"
+                className="btn-chess-dark hover-chess-lift"
               >
                 {isPlaying ? (
                   <>
@@ -170,7 +170,7 @@ export default function ChessBoard() {
                 onClick={resetDemo}
                 variant="outline"
                 size="lg"
-                className="border-chess-wood-dark/20 hover:bg-chess-wood-light/20"
+                className="btn-chess-light hover-chess-lift"
               >
                 <RotateCcw className="w-5 h-5 mr-2" />
                 Reset
@@ -179,7 +179,7 @@ export default function ChessBoard() {
 
             {/* Move Description */}
             <div className="mt-6 text-center">
-              <div className="bg-chess-wood-light/10 rounded-lg p-4 max-w-lg mx-auto">
+              <div className="chess-card-pattern bg-chess-square-light/5 border border-chess-border rounded-lg p-4 max-w-lg mx-auto">
                 <p className="text-sm font-medium text-chess-accent">
                   {currentMove === 0 && 'Ready to start the Scholar\'s Mate demonstration'}
                   {currentMove === 1 && 'White opens with e4, controlling the center'}

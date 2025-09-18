@@ -5,54 +5,68 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 30 100% 4%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    /* Light Theme - Chess White Squares */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 88%;
+    --accent-foreground: 0 0% 8%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 8%;
     --radius: 0.5rem;
-    --chess-wood-light: 35 25% 75%;
-    --chess-wood-dark: 25 30% 45%;
+    
+    /* Chess-specific colors - Light Theme */
+    --chess-square-light: 0 0% 95%;
+    --chess-square-dark: 0 0% 15%;
+    --chess-wood-light: 35 25% 85%;
+    --chess-wood-dark: 25 30% 25%;
     --chess-accent: 30 85% 20%;
+    --chess-gold: 45 100% 50%;
+    --chess-border: 0 0% 75%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Dark Theme - Chess Black Squares */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 22%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chess-wood-light: 35 15% 65%;
-    --chess-wood-dark: 25 20% 35%;
-    --chess-accent: 30 70% 35%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 0 0% 95%;
+    
+    /* Chess-specific colors - Dark Theme */
+    --chess-square-light: 0 0% 85%;
+    --chess-square-dark: 0 0% 5%;
+    --chess-wood-light: 35 15% 75%;
+    --chess-wood-dark: 25 20% 15%;
+    --chess-accent: 30 70% 65%;
+    --chess-gold: 45 100% 60%;
+    --chess-border: 0 0% 35%;
   }
 }
 
@@ -67,53 +81,128 @@
 }
 
 @layer components {
+  /* Chess Board Pattern - Enhanced */
   .chess-board-pattern {
     background-image: 
-      linear-gradient(45deg, transparent 25%, hsl(var(--chess-wood-dark)) 25%),
-      linear-gradient(-45deg, transparent 25%, hsl(var(--chess-wood-dark)) 25%),
-      linear-gradient(45deg, hsl(var(--chess-wood-dark)) 75%, transparent 75%),
-      linear-gradient(-45deg, hsl(var(--chess-wood-dark)) 75%, transparent 75%);
+      linear-gradient(45deg, hsl(var(--chess-square-light)) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(var(--chess-square-light)) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(var(--chess-square-light)) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(var(--chess-square-light)) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    background-color: hsl(var(--chess-square-dark));
+  }
+  
+  /* Chess Tile Background for entire interface */
+  .chess-tile-bg {
+    background-image: 
+      linear-gradient(45deg, hsl(var(--chess-square-light) / 0.03) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(var(--chess-square-light) / 0.03) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(var(--chess-square-light) / 0.03) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(var(--chess-square-light) / 0.03) 75%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  }
+  
+  /* Subtle chess pattern for cards */
+  .chess-card-pattern {
+    background-image: 
+      linear-gradient(45deg, hsl(var(--chess-square-light) / 0.02) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(var(--chess-square-light) / 0.02) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(var(--chess-square-light) / 0.02) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(var(--chess-square-light) / 0.02) 75%);
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
-  
-  .wooden-texture {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='https://freesvg.org/img/texturelegno.png fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4b896' fill-opacity='0.1'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    background-color: hsl(var(--chess-wood-light));
-  }
 
+  /* Chess Squares */
   .chess-square-light {
-    background-color: hsl(var(--chess-wood-light));
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='https://static.vecteezy.com/system/resources/previews/022/983/392/non_2x/a-pattern-of-light-and-dark-brown-squares-of-a-chessboard-wooden-board-for-chess-moves-on-a-checkered-background-chess-cartoon-texture-for-printing-on-textiles-and-paper-gift-packaging-vector.jpg fill='%23D4B896' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h40V20H20z'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: hsl(var(--chess-square-light));
+    border: 1px solid hsl(var(--chess-border));
   }
 
   .chess-square-dark {
-    background-color: hsl(var(--chess-wood-dark));
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Chessboard480.svg/1024px-Chessboard480.svg.png fill='%238B4513' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h40V20H20z'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: hsl(var(--chess-square-dark));
+    border: 1px solid hsl(var(--chess-border));
   }
 
-  .gradient-wooden {
-    background: linear-gradient(135deg, hsl(var(--chess-wood-light)), hsl(var(--chess-wood-dark)));
+  /* Enhanced Gradients */
+  .gradient-chess-light {
+    background: linear-gradient(135deg, hsl(var(--chess-square-light)), hsl(var(--chess-wood-light)));
   }
 
-  .text-shadow-warm {
-    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+  .gradient-chess-dark {
+    background: linear-gradient(135deg, hsl(var(--chess-square-dark)), hsl(var(--chess-wood-dark)));
   }
 
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .gradient-chess-board {
+    background: linear-gradient(135deg, hsl(var(--chess-square-light)), hsl(var(--chess-square-dark)));
   }
 
-  .hover-lift:hover {
+  /* Text Effects */
+  .text-shadow-chess {
+    text-shadow: 2px 2px 4px hsl(var(--chess-square-dark) / 0.3);
+  }
+
+  .text-shadow-chess-dark {
+    text-shadow: 2px 2px 4px hsl(var(--chess-square-light) / 0.3);
+  }
+
+  /* Hover Effects */
+  .hover-chess-lift {
+    transition: all 0.3s ease;
+  }
+
+  .hover-chess-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+    box-shadow: 0 8px 25px hsl(var(--chess-square-dark) / 0.2);
   }
 
+  /* Chess Hero Background */
   .chess-hero {
     background: 
-      radial-gradient(circle at 25% 25%, hsl(var(--chess-wood-light)) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, hsl(var(--chess-wood-dark)) 0%, transparent 50%),
-      linear-gradient(135deg, hsl(var(--chess-wood-light)), hsl(var(--chess-wood-dark)));
+      radial-gradient(circle at 25% 25%, hsl(var(--chess-square-light) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--chess-square-dark) / 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
+  }
+
+  /* Chess Navigation */
+  .chess-nav {
+    background: hsl(var(--background) / 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid hsl(var(--chess-border));
+  }
+
+  /* Chess Button Styles */
+  .btn-chess-light {
+    background: hsl(var(--chess-square-light));
+    color: hsl(var(--chess-square-dark));
+    border: 2px solid hsl(var(--chess-border));
+  }
+
+  .btn-chess-light:hover {
+    background: hsl(var(--chess-square-dark));
+    color: hsl(var(--chess-square-light));
+  }
+
+  .btn-chess-dark {
+    background: hsl(var(--chess-square-dark));
+    color: hsl(var(--chess-square-light));
+    border: 2px solid hsl(var(--chess-border));
+  }
+
+  .btn-chess-dark:hover {
+    background: hsl(var(--chess-square-light));
+    color: hsl(var(--chess-square-dark));
+  }
+
+  /* Chess Gold Accent */
+  .chess-gold {
+    color: hsl(var(--chess-gold));
+  }
+
+  .bg-chess-gold {
+    background-color: hsl(var(--chess-gold));
   }
 }
 
